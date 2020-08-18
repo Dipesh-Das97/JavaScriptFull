@@ -1,9 +1,10 @@
-function closure(b){
+function closure(){
     var a = 10
-    function innerfunction(){
+    return function(b){
+        //var b = 15;
         return a * b;
     }
-    return innerfunction();
+    
 }
-console.log(closure(15));
+console.log(closure()(15));
 
