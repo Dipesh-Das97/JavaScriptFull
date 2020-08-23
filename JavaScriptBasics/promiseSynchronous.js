@@ -19,3 +19,5 @@ var obj2  = new Promise((resolve, reject) => {
 });
 
 Promise.all([obj1,obj2]).then((message)=>console.log(message)).catch((message)=>console.log(message));
+Promise.allSettled([obj1]).then((message)=>console.log(message)).catch((message)=>console.log(message));
+
