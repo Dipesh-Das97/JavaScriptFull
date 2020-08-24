@@ -12,16 +12,13 @@ console.log(a["type"]);*/
 var b = new Object();
 b.name = "Mango",
 b.type = "fruit";
-b.purpose = a.purpose/*function(){
+b.purpose = a.purposefunction(){
     return "also eat";
-}*/;
-//console.log(b);
+};
+console.log(b);
 
 //Using function constructor 
-
-
-
-var Person = function(name, age, gender) {
+/*var Person = function(name, age, gender) {
     this.name = name;
     this.age = age;
     this.gender = gender;
@@ -31,5 +28,5 @@ var cody = new Person("Cody", 33, 'male');
 var jenna = new Person("Jenna", 26, 'female');
 cody.spouce = "Henna";
 console.log(cody);
-console.log(jenna);
+console.log(jenna);*/
 

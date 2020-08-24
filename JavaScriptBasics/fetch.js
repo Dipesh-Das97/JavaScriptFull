@@ -1,0 +1,1 @@
+fetch('https://www.worldometers.info/coronavirus/').then((res)=> res.json())

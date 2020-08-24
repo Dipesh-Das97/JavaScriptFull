@@ -1,6 +1,6 @@
 var myObj = {
     name : "Dipesh",
-    getName : function(){
+    getName : function(name){
         return this.name;
     }
 };

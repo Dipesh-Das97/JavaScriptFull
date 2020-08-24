@@ -7,7 +7,7 @@ var obj1  = new Promise((resolve, reject) => {
     }
 });
 
-//obj1.then((message)=>console.log("Inside then " + message)).catch((message)=>console.log("Inside catch " + message));
+obj1.then((message)=>console.log("Inside then " + message)).catch((message)=>console.log("Inside catch " + message));
 
 var obj2  = new Promise((resolve, reject) => {
     let connection =  true;
