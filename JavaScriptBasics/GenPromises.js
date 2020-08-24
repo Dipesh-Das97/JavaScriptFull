@@ -19,7 +19,7 @@ function taskOne() {
         if (a) {
             resolve("executed");
         }
-        reject("Nope")
+        reject("Failed")
     });
 }
 
@@ -27,8 +27,8 @@ function taskTwo() {
     return new Promise((resolve,reject) => {
         var b = 2;
         if (b==4) {
-            resolve("What?");
+            resolve("Executed");
         }
-        reject("Nope")
+        reject("Failed")
     });
 }
