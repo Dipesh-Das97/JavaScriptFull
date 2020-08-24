@@ -1,7 +1,7 @@
-var func = require('../functionAsArgument');
-sum = func.sum;
-multiply = func.multiply;
+const func = require('../JestTest/functionAsArgument');
+const sum = func.sum;
+const multiply = func.multiply;
 
 test('Passing function as an argument', ()=>{
-    expects(multiply(sum)).toBe(80);
+    expect(multiply(sum)).toBe(80);
 })
