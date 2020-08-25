@@ -13,8 +13,8 @@ function Person(name, age, gender, city, country){
 
 var cody = new Person("Cody", 22, "male", "Texas", "USA");
 var luke = new Person("Luke", 25, "male", "Arizona", "USA");
-/*console.log(cody);
-console.log(luke);*/
+console.log(cody);
+console.log(luke);
 
 luke.work = "IT Engineer"; //Added only to luke not cody
 
