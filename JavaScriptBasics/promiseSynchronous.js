@@ -7,17 +7,15 @@ var obj1  = new Promise((resolve, reject) => {
     }
 });
 
-//obj1.then((message)=>console.log("Inside then " + message)).catch((message)=>console.log("Inside catch " + message));
+obj1.then((message)=>console.log("Inside then " + message)).catch((message)=>console.log("Inside catch " + message));
 
 var obj2  = new Promise((resolve, reject) => {
     let connection =  true;
-    if(connection == true){
+    if(!connection){
         resolve("Successful connection");
     }else{
         reject("Connection Failed");
     }
 });
 
-Promise.all([obj1,obj2]).then((message)=>console.log(message)).catch((message)=>console.log(message));
 Promise.allSettled([obj1]).then((message)=>console.log(message)).catch((message)=>console.log(message));
-
