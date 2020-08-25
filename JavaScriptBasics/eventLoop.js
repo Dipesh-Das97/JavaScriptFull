@@ -7,5 +7,4 @@ var foo = function(){
     setTimeout(callback, 0);
     console.log("C");
 }
-
 foo();
