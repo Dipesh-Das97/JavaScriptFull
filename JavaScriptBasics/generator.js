@@ -2,6 +2,7 @@ function *generator(){
     yield "Cody";
     yield "Lexi";
     yield "Hazel";
+    return;
     yield "Maze";
     //return "Hey";
 }

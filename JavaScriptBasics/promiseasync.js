@@ -1,3 +1,12 @@
+/*var obj1  = new Promise((resolve, reject) => {
+    let b = 1+2;
+    if(b == 2){
+        resolve("Success");
+    }
+    setTimeout(()=>reject("Failed"),5000);
+    
+});*/
+
 var obj1  = new Promise((resolve, reject) => {
     let b = 1+2;
     if(b == 2){

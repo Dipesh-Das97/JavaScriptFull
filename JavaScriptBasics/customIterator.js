@@ -1,7 +1,4 @@
-
-
-try{
-    function range(start, end, count){
+function range(start, end, count){
         let current = start;
         return {
             [Symbol.iterator] : function(){
@@ -21,7 +18,3 @@ try{
         };
     }
     console.log([...range(1,10,2)]);
-}
-catch(err){
-    console.log("Some error");
-}
