@@ -9,6 +9,6 @@ function makeClass(word) {
 }
 
 
-let User = makeClass("Hello");
+let User = makeClass("Hello");//User becomes class name 
 new User().sayHi();
 console.log(new User().name);
