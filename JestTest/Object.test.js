@@ -1,8 +1,11 @@
-const obj = require('./Object')
-const name = obj.name;
-const gender = obj.gender;
+const func = require('./Object')
+
+const getName = func.getName;
+const name = func.name;
+const getGender = func.getGender;
+const gender = func.gender;
 
 test('check for the default values',()=>{
-expect(name()).toBe("Dipesh");
-expect(gender()).toBe("Male");
+expect(getName()).toEqual(name);
+expect(getGender()).toEqual(gender);
 });
