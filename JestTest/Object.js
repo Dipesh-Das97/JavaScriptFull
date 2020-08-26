@@ -2,11 +2,15 @@ var person = new Object();
 person.name = "Dipesh";
 person.gender = "Male"
 person.getName = function () {
-    return this.name;
+    return person.name;
 }
 person.getGender = function () {
-    return this.gender;
+    return person.gender;
 }
 
-module.exports.name = person.getName;
-module.exports.gender = person.getGender;
+console.log(person);
+module.exports.getName = person.getName;
+module.exports.name = person.name;
+module.exports.getGender = person.getGender;
+module.exports.gender = person.gender;
+
