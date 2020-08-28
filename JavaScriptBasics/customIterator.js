@@ -5,13 +5,13 @@ function range(start, end, count){
                 return {
                     next() {
                         let result;
-                        while(current <= end){
+                        if(current <= end){
                             result = {value : current, done : false};
-                            
                             console.log(result);
                             current += count;
-                            
+                            return result    
                         }
+                        return {done:true}
                     }
                 };
             }
