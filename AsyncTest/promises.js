@@ -1,7 +1,7 @@
 function promises(){
     return new Promise((resolve,reject)=>{
         var a = true;
-        if(!a){
+        if(a){
             setTimeout(()=>resolve("Success"),5000);
         }
         else{
