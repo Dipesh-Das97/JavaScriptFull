@@ -1,14 +1,16 @@
 const express = require('express');
 const app = express();
 const port = 8000;
+
+const ObjectsToCsv = require('objects-to-csv');
+
+const neatCsv = require('neat-csv');
+const fs = require('fs');
+
 app.set('view-engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-var users = [
-    { name: "Dipesh", email: "dipeshdas@gmail.com", password: "12345" },
-    { name: "JaiKishan", email: "jaikishan@gmail.com", password: "64785" }
-];
 
 app.get('/', (req, res) => {
     res.render('index.ejs');
@@ -19,12 +21,23 @@ app.get('/login', (req, res) => {
 });//for login page
 
 app.post('/login', (req, res) => {
-    const result = users.find(c => (c.email === req.body.email) && (c.password === req.body.password));
-    if (!result) {
-        res.status(404).send("Wrong credentials!");
-        //res.redirect('/login');
-    }
-    res.send("Welcome!");
+
+    fs.readFile('./models/file.csv', async (err, data) => {
+        if (err) {
+            console.error(err)
+            return
+        }
+        //console.log(await neatCsv(data))
+        const cred = await neatCsv(data);
+        const result = cred.find(c => (c.email === req.body.email) && (c.password === req.body.password));
+        if (!result) {
+            res.status(404).send("Wrong credentials!");
+            //res.redirect('/login');
+        }
+        res.send("Welcome!");
+    })
+
+
 });
 
 app.get('/signup', (req, res) => {
@@ -32,15 +45,20 @@ app.get('/signup', (req, res) => {
 });
 
 app.post('/signup', (req, res) => {
-    var result = {
+    const obj = {
         name: req.body.name,
         email: req.body.email,
         password: req.body.password
-    };
-    users.push(result);
-    console.log(result);
+    }
+    const object = [obj]
+    const csv = new ObjectsToCsv(object)
+
+    const write = async () => {
+        await csv.toDisk('./models/file.csv', { append: true })
+    }
+    write();
+    console.log(object);
     res.redirect('/login');
-    //res.redirect('/signup');    
 });
 
 app.listen(port, () => {
