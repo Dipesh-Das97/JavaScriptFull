@@ -1,9 +1,7 @@
 const express = require('express');
 const app = express();
-const port = 8000;
-
+const port = process.env.PORT || 8080;
 const ObjectsToCsv = require('objects-to-csv');
-
 const neatCsv = require('neat-csv');
 const fs = require('fs');
 
@@ -11,23 +9,20 @@ app.set('view-engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-
 app.get('/', (req, res) => {
     res.render('index.ejs');
 }); //for homepage
 
 app.get('/login', (req, res) => {
-    res.render('login.ejs')
+    res.render('login.ejs');
 });//for login page
 
 app.post('/login', (req, res) => {
-
     fs.readFile('./models/file.csv', async (err, data) => {
         if (err) {
-            console.error(err)
-            return
+            console.error(err);
+            return;
         }
-        //console.log(await neatCsv(data))
         const cred = await neatCsv(data);
         const result = cred.find(c => (c.email === req.body.email) && (c.password === req.body.password));
         if (!result) {
@@ -36,8 +31,6 @@ app.post('/login', (req, res) => {
         }
         res.send("Welcome!");
     })
-
-
 });
 
 app.get('/signup', (req, res) => {
@@ -50,13 +43,12 @@ app.post('/signup', (req, res) => {
         name: req.body.name,
         email: req.body.email,
         password: req.body.password
-    }
-    const object = [obj]
-    const csv = new ObjectsToCsv(object)
-
+    };
+    const object = [obj];
+    const csv = new ObjectsToCsv(object);
     const write = async () => {
         await csv.toDisk('./models/file.csv', { append: true })
-    }
+    };
     write();
     console.log(object);
     res.redirect('/login');
