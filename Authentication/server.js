@@ -9,10 +9,6 @@ app.set('view-engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.render('index.ejs');
-}); //for homepage
-
 app.get('/login', (req, res) => {
     res.render('login.ejs');
 });//for login page
@@ -55,7 +51,6 @@ app.post('/signup', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Listening at http://localhost:${port}`);
     console.log(`Listening at http://localhost:${port}/login`);
     console.log(`Listening at http://localhost:${port}/signup`);
 });
