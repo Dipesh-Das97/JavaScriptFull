@@ -1,5 +1,8 @@
 const bcrypt = require('bcrypt');
+const { Datastore } = require('@google-cloud/datastore');
+const datastore = new Datastore();//Creates a new client
 async function credentialsInput(req, res) {
+    try {
         const hashPass = await bcrypt.hash(req.body.password, 10);
         const kind = "Task"
         const id = "Sample1"
@@ -8,14 +11,18 @@ async function credentialsInput(req, res) {
             key: taskKey,
             data: {
                 time: Date.now().toString(),
-                name: "Dipesh Das",
-                email: "dipeshdas@gmail.com",
+                name: req.body.name,
+                email: req.body.email,
                 password: hashPass
             }
         };
         await datastore.upsert(obj);
         console.log(obj);
-        return res.redirect('/login');
+        res.redirect('/login');
+    } catch {
+        res.redirect('/signup');
+    }
+
 };
 
 module.exports = credentialsInput;

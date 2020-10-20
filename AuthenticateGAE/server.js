@@ -1,8 +1,6 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 8080;
-const { Datastore } = require('@google-cloud/datastore');
-const datastore = new Datastore();//Creates a new client
 const credentialsInput = require('./handlers/postSignup');
 const retrieval = require('./handlers/postLogin');
 
@@ -18,17 +16,13 @@ app.get('/login', (req, res) => {
     res.render('login.ejs');
 });//for login page
 
-app.post('/login', function(req, res){
-    retrieval();
-});
+app.post('/login', retrieval);
 
 app.get('/signup', (req, res) => {
     res.render('signup.ejs')
 });
 
-app.post('/signup', function(req, res){
-    credentialsInput();
-});
+app.post('/signup', credentialsInput);
 
 app.listen(port, () => {
     console.log(`Listening at http://localhost:${port}`);
