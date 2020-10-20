@@ -3,8 +3,8 @@ const app = express();
 const port = process.env.PORT || 8080;
 const { Datastore } = require('@google-cloud/datastore');
 const datastore = new Datastore();//Creates a new client
-const credentialsInput = require('./postSignup');
-const retrieval = require('./postLogin');
+const credentialsInput = require('./handlers/postSignup');
+const retrieval = require('./handlers/postLogin');
 
 app.set('view-engine', 'ejs');//to use the ejs files
 app.use(express.urlencoded({ extended: false }));
