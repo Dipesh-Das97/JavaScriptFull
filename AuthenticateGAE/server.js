@@ -26,4 +26,8 @@ app.get('/signup', (req, res) => {
 
 app.post('/signup', credentialsInput);
 
+<<<<<<< HEAD
 app.listen(port, () => {});
+=======
+app.listen(port, () => {});
+>>>>>>> 596e9419a32ff20f5b12b1f95fbc11fa4faee02e

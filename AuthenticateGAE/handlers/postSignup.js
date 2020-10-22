@@ -1,5 +1,5 @@
-const bcrypt = require('bcrypt');
 const { Datastore } = require('@google-cloud/datastore');
+const bcrypt = require('bcrypt');
 const datastore = new Datastore();//Creates a new client
 async function credentialsInput(req, res) {
     try {
@@ -25,7 +25,5 @@ async function credentialsInput(req, res) {
     } catch {
         res.redirect('/signup');
     }
-
-};
-
+}
 module.exports = credentialsInput;
