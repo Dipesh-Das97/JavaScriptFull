@@ -1,29 +1,17 @@
 const { Datastore } = require('@google-cloud/datastore');
 const bcrypt = require('bcrypt');
 const datastore = new Datastore();//Creates a new client
-async function credentialsInput(req, res) {
-    try {
-        const hashPass = await bcrypt.hash(req.body.password, 10);
-        const kind = "Task";
-        //const id = "Sample2"
-        //const taskKey = datastore.key([kind, id]);
-        const obj = {
-            key: datastore.key([kind, req.body.email]),
-            data: {
-                time: Date.now().toString(),
-                name: req.body.name,
-                email: req.body.email,
-                password: hashPass
-            }
-        };
-        //await datastore.upsert(obj);
-        datastore.insert(obj).then(() => {
-            //Successful
-        })
-        //res.send(obj);
-        res.redirect('/login');
-    } catch {
-        res.redirect('/signup');
+
+async function retrieval(req, res) {
+    const taskKey = datastore.key(['Task', req.body.email]);
+    const entity = await datastore.get(taskKey);
+    const comp = await bcrypt.compare(req.body.password, entity[0]["password"]);
+    //res.send(result);
+    const result = entity.find(c => (c.email === req.body.email) && comp);
+    if (!result) {
+        res.send("Wrong Credential!");
     }
-}
-module.exports = credentialsInput;
+    res.send("Welcome!!");
+};
+
+module.exports = retrieval;
