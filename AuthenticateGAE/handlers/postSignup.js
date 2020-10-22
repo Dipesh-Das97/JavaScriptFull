@@ -16,7 +16,10 @@ async function credentialsInput(req, res) {
                 password: hashPass
             }
         };
-        await datastore.upsert(obj);
+        //await datastore.upsert(obj);
+        datastore.insert(obj).then(() => {
+            //Successful
+        })
         //res.send(obj);
         res.redirect('/login');
     } catch {
