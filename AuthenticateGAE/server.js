@@ -7,7 +7,7 @@ const credentialsInput = require('./handlers/postSignup');
 const retrieval = require('./handlers/postLogin');
 
 app.set('view-engine', 'ejs');//to use the ejs files
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));//to tell the program that we will get info from forms and use in our http request
 app.use(express.json());//for using the middleware
 
 app.get('/', (req, res) => {
