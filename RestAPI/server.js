@@ -27,7 +27,7 @@ app.get('/api/courses/:id', (req, res) => { //: makes 'id' a parameter
     res.send(course);//to get value of each course
 });
 
-app.post('/api/courses/', (req, res) => {
+app.post('/api/courses', (req, res) => {
     const course = {
         id : courseSelection.length + 1,
         name : req.body.name //in order for this req to work we need to enable parsing of json object
