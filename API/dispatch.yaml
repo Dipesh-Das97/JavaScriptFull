@@ -1,0 +1,9 @@
+dispatch:
+  - url: '*/admin'
+    module: admin
+
+  - url: '*/admin/login'
+    module: admin
+  
+  - url: '*/admin/signup'
+    module: admin
