@@ -31,4 +31,3 @@ async function retrieve(){
 
 module.exports.credInput = credInput;
 module.exports.retrieve = retrieve;
-
