@@ -1,6 +1,6 @@
-const { Datastore } = require('@google-cloud/datastore');
+const datastore = require('./datastore');
 const bcrypt = require('bcrypt');
-const datastore = new Datastore();//Creates a new client
+
 async function credentialsInput(req, res) {
     try {
         const hashPass = await bcrypt.hash(req.body.password, 10);
