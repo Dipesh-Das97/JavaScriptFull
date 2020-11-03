@@ -1,5 +1,5 @@
 const { Datastore } =  require('@google-cloud/datastore');
-const datastore= new Datastore();
+const datastore = new Datastore();
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 8080;
