@@ -1,2 +1,4 @@
 node_modules
 coverage
+WEB-INF
+env.yaml
