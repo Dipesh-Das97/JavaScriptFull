@@ -74,6 +74,7 @@ async function batchInput(req, res) {
 
     const batch = [entity1, entity2, entity3, entity4, entity5, entity6, entity7];
     await datastore.upsert(batch);
+    
     res.send("Batch operation Done!");
 };
 
@@ -88,6 +89,7 @@ async function batchRetrieval(req, res) {
     const keys = [taskKey1, taskKey2, taskKey3, taskKey4, taskKey5, taskKey6, taskKey7];
     const entity = await datastore.get(keys);
     res.send(entity);
+    
 };
 
 module.exports.batchInput = batchInput;
