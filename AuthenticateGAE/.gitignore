@@ -1,4 +1,8 @@
 node_modules
 set_vars.cmd
 env.yaml
+<<<<<<< HEAD
 WEB-INF
+=======
+WEB-INF
+>>>>>>> ce4dab73bbae4fd3746bf2db612fd3f8397ee58d
