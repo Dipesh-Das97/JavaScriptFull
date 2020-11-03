@@ -1,4 +1,4 @@
 node_modules
 set_vars.cmd
 env.yaml
-WEB-INF\appengine-generated
+WEB-INF
