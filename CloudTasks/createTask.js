@@ -31,4 +31,4 @@ async function createTask(req, res) {
     res.send({ "response": response, "task": task });
 }
 
-module.exports.createTask = createTask;
+module.exports = createTask;
