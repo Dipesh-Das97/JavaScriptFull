@@ -34,4 +34,8 @@ app.listen(port, () => {
     console.log(`listening at port http://localhost:${port}`);
     console.log(`listening at port http://localhost:${port}/createTask`);
     console.log(`listening at port http://localhost:${port}/task`)
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 447b2e488560e2a5966ee2746c411f1cf699f141
