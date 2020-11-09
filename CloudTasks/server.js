@@ -2,8 +2,7 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 8080;
 const bodyParser = require('body-parser');
-const func = require('./createTask');
-const createTask = func.createTask;
+const createTask = require('./createTask');
 
 app.enable('trust proxy');
 app.use(bodyParser.raw({type: 'application/octet-stream'}));
@@ -34,8 +33,4 @@ app.listen(port, () => {
     console.log(`listening at port http://localhost:${port}`);
     console.log(`listening at port http://localhost:${port}/createTask`);
     console.log(`listening at port http://localhost:${port}/task`)
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> 447b2e488560e2a5966ee2746c411f1cf699f141
