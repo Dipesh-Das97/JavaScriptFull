@@ -1,4 +1,4 @@
-async function createTask(req, res){
+async function createTask(req, res) {
     const { CloudTasksClient } = require('@google-cloud/tasks');
     const client = new CloudTasksClient();
     const project = 'teleport-intern-dinesh';
@@ -13,18 +13,21 @@ async function createTask(req, res){
     const task = {
         appEngineHttpRequest: {
             httpMethod: 'POST',
-            relativeUri: '/task',
-            body: payload,
+            relativeUri: '/handleTask',
+            body: Buffer.from(JSON.stringify(payload)).toString('base64')
         },
-        scheduleTime: { inSeconds }
+        scheduleTime: {
+            seconds: inSeconds + Date.now() / 1000,
+        }
     };
-
     const request = {
         parent: parent,
         task: task
     };
-
+    console.log('Sending app engine task:');
+    console.log(task);
     const [response] = await client.createTask(request);
+    console.log(`Created task ${response.name}`);
     res.send({ "response": response, "task": task });
 }
 
