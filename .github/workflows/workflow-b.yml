@@ -1,9 +1,6 @@
 name: Workflow B
 
-on:
-  pull_request_review:
-    types:
-      - submitted  
+on: 
   workflow_run:
     workflows: ["Workflow A"]
     types:
