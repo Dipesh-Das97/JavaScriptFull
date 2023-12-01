@@ -4,10 +4,7 @@ on:
   pull_request_review:
     types:
       - submitted
-  workflow_run:
-    workflows: ["Workflow A"]
-    types:
-      - completed
+
 
 
 jobs:
@@ -15,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check if Workflow A was successful
+      - name: Check if Workflow C was successful
         run: echo "${{ github.event.review.state }}"
 
       # Add your other steps for workflow-B
