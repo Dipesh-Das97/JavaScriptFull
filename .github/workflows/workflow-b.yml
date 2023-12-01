@@ -1,9 +1,6 @@
 name: Workflow B
 
-on:
-  pull_request_review:
-    types:
-      - submitted  
+on: 
   workflow_run:
     workflows: ["Workflow A"]
     types:
@@ -15,6 +12,6 @@ jobs:
 
     steps:
       - name: Check if Workflow A was successful
-        run: echo "Workflow A was successful!"
+        run: echo "${{ github.event.review.state }}"
 
       # Add your other steps for workflow-B
