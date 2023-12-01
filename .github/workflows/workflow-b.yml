@@ -1,10 +1,14 @@
 name: Workflow B
 
 on: 
+  pull_request_review:
+    types:
+      - submitted
   workflow_run:
     workflows: ["Workflow A"]
     types:
       - completed
+
 
 jobs:
   deploy:
