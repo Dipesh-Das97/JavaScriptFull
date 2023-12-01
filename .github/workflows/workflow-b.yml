@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check if Workflow B was successful
+      - name: Check if Workflow C was successful
         run: echo "${{ github.event.review.state }}"
 
       # Add your other steps for workflow-B
