@@ -1,0 +1,16 @@
+name: Workflow A
+
+on:
+  push:
+    branches:
+        - "master"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Running A
+        run: echo "Workflow A running"
+
+      # Add your other steps for workflow-B
