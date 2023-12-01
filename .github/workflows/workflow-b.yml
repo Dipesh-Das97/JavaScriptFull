@@ -1,0 +1,17 @@
+name: Workflow B
+
+on:
+  workflow_run:
+    workflows: ["Workflow A"]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check if Workflow A was successful
+        run: echo "Workflow A was successful!"
+
+      # Add your other steps for workflow-B
