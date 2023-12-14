@@ -29,8 +29,7 @@ jobs:
           separator: ' '
 
       - name: Print branch
-        env:
-          VALUE: ${{ toJson(steps.split_version.outputs) }}
+
         run: |
-          echo "$VALUE"
+          echo "${{steps.split_version.outputs._2}}"
 
