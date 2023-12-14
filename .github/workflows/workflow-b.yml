@@ -1,13 +1,13 @@
 name: Workflow B
 
 on: 
-  pull_request_review:
-    types:
-      - submitted
   workflow_run:
-    workflows: ["Workflow A"]
+    workflows: 
+      - Workflow A
     types:
       - completed
+    branches:
+      - master  
 
 
 jobs:
