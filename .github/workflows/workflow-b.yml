@@ -26,7 +26,7 @@ jobs:
         id: split-version
         with:
           msg: ${{github.event.workflow_run.display_title}}
-          separator: /#
+          separator: ''
 
       - name: Print branch
         env:
