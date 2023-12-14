@@ -21,6 +21,16 @@ jobs:
       - name: Print branch
         run: |-
           echo ${{github.event.workflow_run.display_title}}   
-          TITLE=${{github.event.workflow_run.display_title}}   
-          PR_NUMBER=$(echo "$PR_TITLE" | sed 's/^Merge pull request #\([0-9]*\) from.*/\1/')
-          echo "Pull Request Number: $PR_NUMBER"
+         
+      - uses: jungwinter/split@v2
+        id: split-version
+        with:
+          msg: ${{github.event.workflow_run.display_title}}
+          separator: /#
+
+      - name: Print branch
+        env:
+          VALUE: ${{ toJson(steps.split_version.outputs) }}
+        run: |
+          echo "$VALUE"
+
