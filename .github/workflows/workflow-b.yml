@@ -23,3 +23,6 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
           echo "$GITHUB_CONTEXT"
+
+      - name: Print branch
+        run: echo ${{github.event.workflow_run.display_title}}      
