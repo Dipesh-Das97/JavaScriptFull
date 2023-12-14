@@ -19,7 +19,7 @@ jobs:
         name: Checking out repository
 
       - name: Print branch
-        run: |
+        run: |-
           echo ${{github.event.workflow_run.display_title}}   
           TITLE=${{github.event.workflow_run.display_title}}   
           PR_NUMBER=$(echo "$PR_TITLE" | sed 's/^Merge pull request #\([0-9]*\) from.*/\1/')
