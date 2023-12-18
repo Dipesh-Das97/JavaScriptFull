@@ -20,16 +20,7 @@ jobs:
 
       - name: Print branch
         run: |-
-          echo ${{github.event.workflow_run.display_title}}   
-         
-      - uses: jungwinter/split@v2
-        id: split-version
-        with:
-          msg: ${{github.event.workflow_run.display_title}}
-          separator: /
-
-      - name: Print branch
-
-        run: |
-          echo "${{steps.split_version.outputs._2}}"
+          reflog_message=$(git reflog -1)
+          merged_branch_name=$(echo $reflog_message | cut -d" " -f 4 | sed "s/://")
+          echo "You've just merged the branch \"$merged_branch_name\"
 
