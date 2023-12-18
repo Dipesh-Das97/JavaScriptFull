@@ -11,6 +11,8 @@ jobs:
 
     steps:
       - name: Running A
+        env:
+          NAME: "WorkflowA"
         run: echo "Workflow A running"
 
       # Add your other steps for workflow-B
