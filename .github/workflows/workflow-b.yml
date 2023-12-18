@@ -22,7 +22,7 @@ jobs:
         id: json_properties
         uses: ActionsTools/read-json-action@main
         with:
-          file_path: "src/credentials.json"
+          file_path: "credentials.json"
       
       - run: |
           echo ${{steps.json_properties.outputs.branchName}}
