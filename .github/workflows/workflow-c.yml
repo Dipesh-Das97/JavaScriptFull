@@ -1,0 +1,22 @@
+name: teleport.video-services BVT stage
+
+on: 
+  pull_request_review:
+    types:
+      - submitted
+ 
+
+jobs:
+  Set-BranchName:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        name: Checking out repository
+
+      - name: Create Branch name JSON
+        uses: jsdaniell/create-json@v1.2.2
+        with:
+          name: "credentials.json"
+          json: '{"branchName": "${{github.event.pull_request.head.ref}}"'
+          dir: 'standard/teleport.video/'
+
