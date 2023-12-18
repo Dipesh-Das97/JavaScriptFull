@@ -19,8 +19,5 @@ jobs:
         name: Checking out repository
 
       - name: Print branch
-        run: |-
-          reflog_message=$(git reflog -1)
-          merged_branch_name=$(echo $reflog_message | cut -d" " -f 4 | sed "s/://")
-          echo "You've just merged the branch \"$merged_branch_name\"
+        run: echo $NAME
 
