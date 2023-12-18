@@ -18,5 +18,4 @@ jobs:
         with:
           name: "credentials.json"
           json: '{"branchName": "${{github.event.pull_request.head.ref}}"'
-          dir: 'src/'
 
