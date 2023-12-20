@@ -2,9 +2,7 @@ name: Workflow B
 
 on: 
   workflow_run:
-    workflows: 
-      - Workflow C
-      - Workflow D
+    workflows: ["Workflow C", "Workflow D"]
     types:
       - completed
     branches:
