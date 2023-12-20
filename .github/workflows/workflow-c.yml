@@ -1,4 +1,4 @@
-name: teleport.video-services BVT stage
+name: Workflow C
 
 on:
   pull_request:
@@ -13,10 +13,6 @@ jobs:
       - uses: actions/checkout@v3
         name: Checking out repository
 
-      - name: Create Branch name JSON
-        uses: jsdaniell/create-json@v1.2.2
-        with:
-          name: "credentials.json"
-          json: '{"branchName": "${{github.event.pull_request.head.ref}}"'
-          dir: "/"
+      - name: Running C
+        run: echo "Workflow C running" 
 
