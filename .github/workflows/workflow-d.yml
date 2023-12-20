@@ -1,0 +1,18 @@
+name: Workflow D
+
+on: 
+    pull_request_review:
+      types:
+        - submitted
+
+
+jobs:
+    BVT-stage:
+      environment: staging
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+          name: Checking out repository
+
+        - name: Running D
+          run: echo "Workflow D running"  

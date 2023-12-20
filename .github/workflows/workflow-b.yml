@@ -3,7 +3,8 @@ name: Workflow B
 on: 
   workflow_run:
     workflows: 
-      - Workflow A
+      - Workflow C
+      - Workflow D
     types:
       - completed
     branches:
@@ -18,13 +19,7 @@ jobs:
       - uses: actions/checkout@v3
         name: Checking out repository
 
-      - name: get properties
-        id: json_properties
-        uses: ActionsTools/read-json-action@main
-        with:
-          file_path: "credentials.json"
-      
-      - run: |
-          echo ${{steps.json_properties.outputs.branchName}}
+      - name: Running B
+        run: echo "Workflow B running"  
       
 
